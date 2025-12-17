@@ -37,14 +37,18 @@ if "username" not in st.session_state:
     st.session_state.username = []
     st.session_state.username.append("admin")
     st.session_state.username.append("A")
+
 if "password" not in st.session_state:
     st.session_state.password = []
     st.session_state.password.append("admin123")
     st.session_state.password.append("A")
+
 if "current_state" not in st.session_state:
     st.session_state.current_state = "login"
+
 if "logined_username" not in st.session_state:
     st.session_state.logined_username = None
+    
 if "login_status" not in st.session_state:
     st.session_state.login_status = False
 

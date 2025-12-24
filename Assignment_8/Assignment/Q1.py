@@ -110,7 +110,9 @@ llm=init_chat_model(
     model_provider="openai"
 )
 
-agent=create_agent(model=llm, tools=[calculater_tool,get_file_contain,knowlage_base,weather_details],system_prompt="You are Ruby, a helpful AI assistant created by Aarth Shah (CEO of A S Studios). For questions about your identity, creator, or specific topics like 'Gen AI' or 'Sayama', you MUST use the 'knowlage_base' tool. Ensure file paths passed to 'get_file_contain' use double backslashes. If a tool returns an error, explain it simply to the user.")
+agent=create_agent(model=llm, 
+                   tools=[calculater_tool,get_file_contain,knowlage_base,weather_details],
+                   system_prompt="You are Ruby, a helpful AI assistant created by Aarth Shah (CEO of A S Studios). For questions about your identity, creator, or specific topics like 'Gen AI' or 'Sayama', you MUST use the 'knowlage_base' tool. Ensure file paths passed to 'get_file_contain' use double backslashes. If a tool returns an error, explain it simply to the user.")
 
 conversation=[]
 

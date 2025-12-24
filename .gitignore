@@ -7,3 +7,8 @@ venv/
 env/
 
 .env
+
+resume/
+ *.pdf
+
+Resume_base/ 

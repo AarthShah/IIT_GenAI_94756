@@ -9,6 +9,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.action_chains import ActionChains
+from langchain_community.document_loaders import WebBaseLoader
 import time
 @tool
 def sql_executor(query):
@@ -41,25 +42,11 @@ def  web_search(title,word=None):
     output : this will give the reult of search query in string format and if it not finds any thing or any error occures it returns error 
     '''
 
+    loader = WebBaseLoader("https://www.sunbeaminfo.in/sitemap")
+    doc=loader.load()
 
-    driver.get("https://www.sunbeaminfo.in")
-    driver.implicitly_wait(15)
-    wait=WebDriverWait(driver,15)
-    if title=="aboutcdac":
-        element = driver.find_element(By.LINK_TEXT, "ABOUT US")
-        print(element)
-        action=ActionChains(driver)
-        action.move_to_element(element).perform()
-        # dropdown=wait.until(EC.visibility_of_element_located((By.CLASS_NAME,"dropdown-menu")))
-        # print(dropdown)
-        element2= wait.until(EC.visibility_of_element_located((By.PARTIAL_LINK_TEXT, "BRANCH")))
-        print(element2)
-        element2.click()
-    else :
-        print("Fail")
-    
-    time.sleep(10)
-    driver.quit()
+    for i in doc:
+         print(i)
 
 
 

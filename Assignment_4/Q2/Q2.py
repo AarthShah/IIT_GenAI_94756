@@ -77,6 +77,15 @@ def check_password(username, password):
         return
 
     
+def show_history():
+    df=pd.read_csv("C:\\Users\\Aarth Shah\\OneDrive\\Desktop\\Sunbeam\\IIT_GenAI_94756\\Assignment_4\\Q2\\userfile.csv")
+    name=st.session_state.loged_user
+    st.write(df[df["User"] == name])
+
+
+def change_state():
+    st.session_state.current_page = "login"
+
 
 st.title("CSV File Uploader and Viewer")
 
@@ -122,6 +131,12 @@ elif st.session_state.current_page == "Home":
 elif st.session_state.current_page == "Upload CSV":
     file=upload_file()
 
-
-
+elif st.session_state.current_page =="History":
+    show_history()
+    
+elif st.session_state.current_page =="Logout":
+    st.session_state.login_status = False
+    change_state()
+    
+    
     

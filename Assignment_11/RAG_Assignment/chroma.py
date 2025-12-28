@@ -41,19 +41,22 @@ def update_data(data,metadata,embed,id):
 
 def get_data_for_Embed_query(Equery):
     result=content.query(query_embeddings=Equery,n_results=3,)
-    if result["documents"] != None and result["metadatas"]:
-        for data , metadata in zip(result["documents"],result["metadatas"]): 
-            print("Data -->",data)
-            print("Meta data -->",metadata)
-    else:
-        print("No data found..")
+    # if result["documents"] != None and result["metadatas"]:
+    #     # for data , metadata in zip(result["documents"],result["metadatas"]): 
+    #     #     print("Data -->",data)
+    #     #     print("Meta data -->",metadata)
+    return result
+    # else:
+    #     print("No data found..")
+    #     return None
 
 
 
 if __name__=="__main__":
     # path=r"C:\Users\Aarth Shah\OneDrive\Desktop\Sunbeam\IIT_GenAI_94756\Assignment_11\resume\resume-002.pdf"
     # get_data()
-    delete_data('01')
+    # delete_data('resume-011<built-in method today of type object at 0x00007FFD8D3D0F40>')
     get_ids()
+
 
 
